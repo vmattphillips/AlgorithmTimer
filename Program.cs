@@ -86,9 +86,9 @@ public class Program
                         Console.WriteLine("Dataset is empty!");
                         break;
                     }
-                    Console.Write("What value to search for?");
+                    Console.Write("What value to search for? ");
                     int.TryParse(Console.ReadLine(), out searchValue);
-                    Console.Write("Searching the dataset for " + searchValue + " with BinarySearch");
+                    Console.WriteLine("Searching the dataset for " + searchValue + " with BinarySearch");
                     watch = System.Diagnostics.Stopwatch.StartNew();
                     index = BinarySearch(arr, searchValue);
                     watch.Stop();
