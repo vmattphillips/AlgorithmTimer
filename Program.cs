@@ -128,7 +128,7 @@ public class Program
 
         for (int i = 0; i < arr.Length; i++)
         {
-            arr[i] = r.Next(25);
+            arr[i] = r.Next(Int32.MaxValue);
         }
 
         return arr;
