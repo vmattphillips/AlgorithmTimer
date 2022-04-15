@@ -40,8 +40,6 @@ public class Program
                     int.TryParse(Console.ReadLine(), out dataSetSize);
                     Console.WriteLine("Generating New Data! Array size: " + dataSetSize);
                     arr = GenerateDataSet(dataSetSize);
-                    Console.Write("Press any key to go back to main menu...");
-                    Console.ReadLine();
                     break;
                 case "p":
                     PrintArray(arr);
@@ -59,8 +57,6 @@ public class Program
                     ms = watch.ElapsedMilliseconds;
 
                     Console.WriteLine("COMPLETED InsertionSort! Time to complete: " + ms + "ms!");
-                    Console.Write("Press any key to go back to main menu...");
-                    Console.ReadLine();
                     break;
 
                 case "q":
@@ -76,8 +72,6 @@ public class Program
                     ms = watch.ElapsedMilliseconds;
 
                     Console.WriteLine("COMPLETED QuickSort! Time to complete: " + ms + "ms!");
-                    Console.Write("Press any key to go back to main menu...");
-                    Console.ReadLine();
                     break;
 
                 case "b":
@@ -96,10 +90,10 @@ public class Program
 
                     Console.WriteLine("COMPLETED BinarySearch! Time to complete: " + ms + "ms!");
                     Console.WriteLine("Value was found at index: " + index);
-                    Console.Write("Press any key to go back to main menu...");
-                    Console.ReadLine();
                     break;
             }
+            Console.Write("Press any key to go back to main menu...");
+            Console.ReadLine();
         }
     }
 
