@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using DataStructures;
 
 public class Program
 {
@@ -23,6 +24,7 @@ public class Program
         string? choice;
 
         int[] arr = new int[] { };
+        BinarySearchTree tree = new BinarySearchTree();
         Stopwatch watch;
         double ms;
 
@@ -38,8 +40,22 @@ public class Program
                 case "n":
                     Console.Write("Dataset Size: ");
                     int.TryParse(Console.ReadLine(), out dataSetSize);
-                    Console.WriteLine("Generating New Data! Array size: " + dataSetSize);
-                    arr = GenerateDataSet(dataSetSize);
+                    Console.WriteLine("[A]rray or [B]ST?");
+                    choice = Console.ReadLine();
+                    if (choice.ToLower() == "a")
+                    {
+                        Console.WriteLine("Generating New Data! Array size: " + dataSetSize);
+                        arr = GenerateDataSet(dataSetSize);
+                    }
+                    else if (choice.ToLower() == "b")
+                    {
+                        Console.WriteLine("Generating New Data! Tree size: " + dataSetSize);
+                        tree = GenerateBST(dataSetSize); // Nothing to do with this yet in the driver
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unknown input");
+                    }
                     break;
                 case "p":
                     PrintArray(arr);
@@ -91,6 +107,10 @@ public class Program
                     Console.WriteLine("COMPLETED BinarySearch! Time to complete: " + ms + "ms!");
                     Console.WriteLine("Value was found at index: " + index);
                     break;
+
+                default:
+                    Console.WriteLine("Unknown input");
+                    break;
             }
             Console.Write("Press any key to go back to main menu...");
             Console.ReadLine();
@@ -112,6 +132,19 @@ public class Program
             }
         }
         Console.WriteLine("]");
+    }
+
+    // Generates a random BST
+    static BinarySearchTree GenerateBST(int size)
+    {
+        Random r = new Random();
+        BinarySearchTree tree = new BinarySearchTree();
+
+        for (int x = 0; x < size; x++)
+        {
+            tree.Insert(r.Next(Int32.MaxValue));
+        }
+        return tree;
     }
 
     // Generates a random int array
